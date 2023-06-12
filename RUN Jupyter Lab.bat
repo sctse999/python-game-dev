@@ -1,1 +1,2 @@
+git pull
 jupyter-lab
