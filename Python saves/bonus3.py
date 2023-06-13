@@ -46,7 +46,7 @@ def gameOver():
     global bird_vel, isGameOver, normal_text, lost_rect, lost_surf, scoreShow_rect, scoreShow_surf, glide, bird_surf, restart_rect, restart_surf
     bird_vel = -10
     glide = False
-    isGameOver = True
+    isGameOver = False
     lost_surf = normal_text.render("Game Over...", True, "Red")
     lost_rect = lost_surf.get_rect(center = (400, 280))
     scoreShow_surf = normal_text.render(f"Your Score: {score}", True, "Red")
@@ -113,10 +113,10 @@ while running:
                 if not current.scored and current.posx < 0:
                     if current.special:
                         score += 5
-                        speed += 0.5
+                        speed *= 1.1
                     else:
                         score += 1
-                        speed += 0.1
+                        speed *= 1.1
                     current.scored = True
                 
                 if current.posx < -60:
